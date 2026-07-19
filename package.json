@@ -1,0 +1,25 @@
+{
+  "name": "aymen-sentinel",
+  "version": "1.0.0",
+  "description": "Discord verification and role-assignment bot",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.27.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongoose": "^9.7.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

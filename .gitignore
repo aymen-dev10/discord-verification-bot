@@ -24,3 +24,7 @@ Desktop.ini
 # Build artifacts
 dist/
 build/
+
+# Prompts
+prompt/
+

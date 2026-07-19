@@ -13,4 +13,7 @@ app.use(express.json());
 // Mount routes
 app.use('/health', require('./routes/health.routes'));
 
+// Ping endpoint to prevent Render spin-down under the free tier
+app.get('/ping', (req, res) => res.send('I am awake!'));
+
 module.exports = app;

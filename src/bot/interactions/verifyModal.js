@@ -6,6 +6,7 @@
 // ensure other members cannot see private verification details or error messages.
 
 const { verifyCode } = require('../../services/verificationService');
+const { sendDM } = require('../../services/notificationService');
 
 // User-friendly error message dictionary mapping machine reason codes
 // to human-readable text.
@@ -42,6 +43,13 @@ async function handleVerifyModal(interaction) {
       await interaction.editReply({
         content: `✅ **Success!** You have been verified and granted the **${result.roleName}** role. Welcome to the server!`,
       });
+
+      // Send confirmation DM asynchronously after the ephemeral reply
+      sendDM(
+        interaction.client,
+        interaction.user.id,
+        `🎉 You're verified! You've been given the **${result.roleName}** role. Welcome aboard!`
+      );
     } else {
       const message = ERROR_MESSAGES[result.reason] || 'Verification failed for an unknown reason.';
       await interaction.editReply({

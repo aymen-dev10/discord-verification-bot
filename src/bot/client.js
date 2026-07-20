@@ -7,6 +7,7 @@
 const { Client, GatewayIntentBits } = require('discord.js');
 const { handleReady } = require('./events/ready');
 const { handleInteractionCreate } = require('./events/interactionCreate');
+const handleGuildMemberAdd = require('./events/guildMemberAdd');
 
 const client = new Client({
   intents: [
@@ -18,5 +19,6 @@ const client = new Client({
 // Register events
 client.once('ready', () => handleReady(client));
 client.on('interactionCreate', handleInteractionCreate);
+client.on('guildMemberAdd', handleGuildMemberAdd);
 
 module.exports = client;
